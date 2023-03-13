@@ -21,11 +21,11 @@ use Illuminate\Support\Facades\Route;
 Route::post('/register', [\App\Http\Controllers\AuthController::class, 'register']);
 Route::post('/login', [\App\Http\Controllers\AuthController::class, 'login']);
 
-Route::middleware('jwt.verify')->group(function (){
+// Route::middleware('jwt.verify')->group(function (){
     Route::get('/person', [\App\Http\Controllers\PersonController::class, 'all']);
     Route::get('/person/{id}', [\App\Http\Controllers\PersonController::class, 'index']);
     Route::get('/planets', [\App\Http\Controllers\PlanetController::class, 'all']);
     Route::get('/planets/{id}', [\App\Http\Controllers\PlanetController::class, 'index']);
     Route::get('/vehicles', [\App\Http\Controllers\VehicleController::class, 'all']);
     Route::get('/vehicles/{id}', [\App\Http\Controllers\VehicleController::class, 'index']);
-});
+// });
