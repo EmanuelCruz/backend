@@ -7,11 +7,12 @@ use Illuminate\Support\Facades\Http;
 
 class PersonController extends Controller
 {
-    public function all()
+    public function all(Request $request)
     {
         $url = env('API_ENDPOINT');
         $response = Http::get($url . '/people');
-        $data = $response->json('results');
+        // $data = $response->json('results');
+        $data = $response->json();
 
         return response()->json([
             'data' => $data,

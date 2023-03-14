@@ -18,14 +18,14 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::post('/register', [\App\Http\Controllers\AuthController::class, 'register']);
-Route::post('/login', [\App\Http\Controllers\AuthController::class, 'login']);
+Route::post('/register', [\App\Http\Controllers\AuthController::class, 'register'])->name('auth.register');
+Route::post('/login', [\App\Http\Controllers\AuthController::class, 'login'])->name('auth.login');
 
 Route::middleware('jwt.verify')->group(function (){
-    Route::get('/person', [\App\Http\Controllers\PersonController::class, 'all']);
-    Route::get('/person/{id}', [\App\Http\Controllers\PersonController::class, 'index']);
-    Route::get('/planets', [\App\Http\Controllers\PlanetController::class, 'all']);
-    Route::get('/planets/{id}', [\App\Http\Controllers\PlanetController::class, 'index']);
-    Route::get('/vehicles', [\App\Http\Controllers\VehicleController::class, 'all']);
-    Route::get('/vehicles/{id}', [\App\Http\Controllers\VehicleController::class, 'index']);
+    Route::get('/person', [\App\Http\Controllers\PersonController::class, 'all'])->name('person.all');
+    Route::get('/person/{id}', [\App\Http\Controllers\PersonController::class, 'index'])->name('person.id');
+    Route::get('/planets', [\App\Http\Controllers\PlanetController::class, 'all'])->name('planets.all');
+    Route::get('/planets/{id}', [\App\Http\Controllers\PlanetController::class, 'index'])->name('planets.id');
+    Route::get('/vehicles', [\App\Http\Controllers\VehicleController::class, 'all'])->name('vehicles.all');
+    Route::get('/vehicles/{id}', [\App\Http\Controllers\VehicleController::class, 'index'])->name('vehicles.id');
 });

@@ -43,12 +43,12 @@ class AuthController extends Controller
             $token = JWTAuth::attempt($credenciales);
             if (!$token){
                 return response()->json([
-                    'error' => "credenciales invalidas"
+                    'status' => "credenciales invalidas"
                 ], 400);
             }
         } catch (JWTException $e) {
             return response()->json([
-                'error' => 'El token no se pudo crear',
+                'status' => 'El token no se pudo crear',
             ], 500);
         }
 
