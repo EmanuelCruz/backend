@@ -79,7 +79,7 @@ Luego de tener el proyecto funcionando, debe crear un usuario y logearlo para ob
     http://localhost:8000/api/vehicles/4
     ```
 
-    - Planets (es necesario un token)
+- Planets (es necesario un token)
 
     Obtener todo los planetas de Star Wars. Debe modificar el valor de page si necesita ver el resto de los planetas
 
