@@ -20,16 +20,16 @@ class JwtMiddleware
 
             if($e instanceof TokenInvalidException){
                 return response()->json([
-                     'status' => 'El token es invalido'
+                     'status' => 'The token is invalid'
                 ], 401);
             }
             if($e instanceof TokenExpiredException){
                 return response()->json([
-                     'status' => 'El token expiro'
+                     'status' => 'The token expired'
                 ], 401);
             }
 
-            return response()->json(['status' => 'No tiene autorizacion'], 401);
+            return response()->json(['status' => 'unauthorized'], 401);
         }
 
         return $next($request);
